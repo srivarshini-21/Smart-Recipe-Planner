@@ -1,0 +1,11 @@
+# Ignore virtual environment directories
+venv/
+__pycache__/
+
+# Ignore IDE configurations (like VSCode)
+.vscode/
+
+# Ignore other potential system files
+*.log
+*.sqlite3
+*.db
