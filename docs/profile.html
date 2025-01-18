@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles5.css">
-    <link rel="webiste icon" type="png" href="../static/logo1.png">
+    <link rel="stylesheet" href="../docs/static/styles5.css">
+    <link rel="webiste icon" type="png" href="../docs/static/logo1.png">
     <title>Profile - Smart Recipe Planner</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
     <div class="profile-container">
         <h1>User Profile</h1>
         <div class="profile-picture">
-            <img id="selected-profile-pic" src="../static/profile-pic.jpeg" alt="Profile Picture">
+            <img id="selected-profile-pic" src="../docs/static/profile-pic.jpeg" alt="Profile Picture">
         </div>
         <div class="profile-details">
             Username:<p><strong></strong></p>
@@ -32,24 +32,24 @@
             <form id="profile-pic-form" action="/save-profile-pic" method="POST">
                 <div class="character-options">
                     <label>
-                        <input type="radio" name="profile-pic" value="../static/panda.jpg">
-                        <img src="../static/panda.jpg" alt="Character 1">
+                        <input type="radio" name="profile-pic" value="../docs/static/panda.jpg">
+                        <img src="../docs/static/panda.jpg" alt="Character 1">
                     </label>
                     <label>
-                        <input type="radio" name="profile-pic" value="../static/kitty.jpg">
-                        <img src="../static/kitty.jpg" alt="Character 2">
+                        <input type="radio" name="profile-pic" value="../docs/static/kitty.jpg">
+                        <img src="../docs/static/kitty.jpg" alt="Character 2">
                     </label>
                     <label>
-                        <input type="radio" name="profile-pic" value="../static/puppy.jpg">
-                        <img src="../static/puppy.jpg" alt="Character 3">
+                        <input type="radio" name="profile-pic" value="../docs/static/puppy.jpg">
+                        <img src="../docs/static/puppy.jpg" alt="Character 3">
                     </label>
                     <label>
-                        <input type="radio" name="profile-pic" value="../static/rabbit.jpg">
-                        <img src="../static/rabbit.jpg" alt="Character 4">
+                        <input type="radio" name="profile-pic" value="../docs/static/rabbit.jpg">
+                        <img src="../docs/static/rabbit.jpg" alt="Character 4">
                     </label>
                     <label>
-                        <input type="radio" name="profile-pic" value="../static/squishy.jpeg">
-                        <img src="../static/squishy.jpeg" alt="Character 5">
+                        <input type="radio" name="profile-pic" value="../docs/static/squishy.jpeg">
+                        <img src="../docs/static/squishy.jpeg" alt="Character 5">
                     </label>
                     <!-- Add more character options as needed -->
                 </div>
@@ -72,7 +72,7 @@
             .then(data => {
                 if (data.success) {
                     document.querySelector('.profile-details p strong').innerText = data.username;
-                    document.getElementById('selected-profile-pic').src = `../${data.profile_picture}`;
+                    document.getElementById('selected-profile-pic').src = `../docs/${data.profile_picture}`;
                 } else {
                     alert(data.message || "Failed to load profile data.");
                 }
@@ -106,7 +106,7 @@
             .then(data => {
                 if (data.success) {
                     alert(data.message);
-                    document.getElementById('selected-profile-pic').src = `../static/${selectedPic.value}`;
+                    document.getElementById('selected-profile-pic').src = `../docs/static/${selectedPic.value}`;
                 } else {
                     alert(data.message || "Failed to save profile picture.");
                 }
