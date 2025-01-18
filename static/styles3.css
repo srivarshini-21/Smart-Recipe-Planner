@@ -1,0 +1,206 @@
+body {
+    font-family: cursive;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+.vegetarian {
+background-image: url(veg.png);
+}
+.desserts {
+    background-image: url(desserts.png);
+}
+.quick-meals {
+    background-image: url(quickmeals.png);
+}
+
+nav {
+    width: 100%;
+    background-color: rgba(4, 1, 1, 0.8);
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-left {
+    margin-left: 2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-left {
+        margin-left: 0;
+        margin-bottom: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 0.5em;
+    }
+
+    .nav-left {
+        margin-left: 0;
+        margin-bottom: 0.5em;
+    }
+}
+
+.nav-left li {
+    margin-right: 2em;
+}
+
+.nav-left li a, .profile a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.nav-left li a, .profile a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.vegetarian-container {
+    text-align: center;
+    padding: 3em;
+    background: rgba(4, 1, 1, 0.8);
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+    margin: 2em auto;
+    width: 80%;
+}
+
+.vegetarian-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+.recipe-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.recipe-item {
+    margin: 1em;
+    max-width: 300px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1.5em;
+    border-radius: 15px;
+    border: solid 1px rgba(4, 1, 1, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #000;
+}
+
+.recipe-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+}
+
+.recipe-item h2 {
+    margin: 0.5em 0;
+    font-size: 1.8em;
+}
+
+.recipe-item h3, .recipe-item h4 {
+    margin: 0.5em 0;
+    font-weight: normal;
+}
+.like-btn {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.like-btn:hover {
+    background-color: #f04646;
+}
+
+footer {
+    background-color: rgba(4, 1, 1, 0.8);
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    border-top: 1px solid white;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer ul li {
+    margin: 0 1em;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-left {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-left li {
+        margin-right: 0;
+        margin-bottom: 1em;
+    }
+
+    .vegetarian-container {
+        width: 90%;
+        padding: 2em;
+    }
+
+    .vegetarian-container h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-left li a, .profile a {
+        font-size: 1em;
+    }
+
+    .vegetarian-container {
+        width: 95%;
+        padding: 1.5em;
+    }
+
+    .vegetarian-container h1 {
+        font-size: 1.5em;
+    }
+}

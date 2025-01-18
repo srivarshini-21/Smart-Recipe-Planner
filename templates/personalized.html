@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Recipes</title>
+    <link rel="stylesheet" href="../static/styles6.css"> <!-- Link to the new CSS -->
+    <link rel="webiste icon" type="png" href="../static/logo1.png">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+            <div class="profile">
+                <a href="profile.html">My Profile</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h2>Submit Your Personalized Recipe</h2>
+        <form id="recipeForm">
+            <label for="recipeName">Recipe Name:</label>
+            <input type="text" id="recipeName" placeholder="Enter recipe name" required>
+            <label for="ingredients">Ingredients:</label>
+            <input type="text" id="ingredients" placeholder="Enter ingredients" required>
+            <label for="instructions">Instructions:</label>
+            <input type="text" id="instructions" placeholder="Enter instructions" required>
+            <button type="submit">Submit Recipe</button>
+        </form>
+        
+        <section id="recipe-list">
+            
+            <!-- Sample saved recipe - dynamically added via backend or JS -->
+            <div class="recipe">
+                <!-- <h4>Recipe Name: Sample Recipe</h4>
+                <p>Ingredients: Sample Ingredients</p>
+                <p>Instructions: Sample Instructions</p>
+                <button class="delete-btn" onclick="deleteRecipe()">Delete</button> Delete button for each recipe -->
+            </div>
+            <p id="noRecipes">No recipes have been added yet.</p> <!-- Shown when no recipes exist -->
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Smart Recipe Planner</p>
+    </footer>
+
+    <script src="../static/personalized.js"></script>
+    <script>
+        function deleteRecipe() {
+            alert('Recipe deleted'); // Replace this with actual backend logic later
+        }
+    </script>
+</body>
+</html>

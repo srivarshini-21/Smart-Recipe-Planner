@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles5.css">
+    <link rel="webiste icon" type="png" href="../static/logo1.png">
+    <title>Profile - Smart Recipe Planner</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About Me</a></li>
+        </ul>
+        <div class="profile">
+            <a href="profile.html">My Profile</a>
+        </div>
+    </nav>
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <div class="profile-picture">
+            <img id="selected-profile-pic" src="../static/profile-pic.jpeg" alt="Profile Picture">
+        </div>
+        <div class="profile-details">
+            Username:<p><strong></strong></p>
+            <button onclick="logout()">Logout</button>
+        </div>
+        <div class="profile-pic-selection">
+            <h2>Choose Your Profile Picture</h2>
+            <form id="profile-pic-form" action="/save-profile-pic" method="POST">
+                <div class="character-options">
+                    <label>
+                        <input type="radio" name="profile-pic" value="../static/panda.jpg">
+                        <img src="../static/panda.jpg" alt="Character 1">
+                    </label>
+                    <label>
+                        <input type="radio" name="profile-pic" value="../static/kitty.jpg">
+                        <img src="../static/kitty.jpg" alt="Character 2">
+                    </label>
+                    <label>
+                        <input type="radio" name="profile-pic" value="../static/puppy.jpg">
+                        <img src="../static/puppy.jpg" alt="Character 3">
+                    </label>
+                    <label>
+                        <input type="radio" name="profile-pic" value="../static/rabbit.jpg">
+                        <img src="../static/rabbit.jpg" alt="Character 4">
+                    </label>
+                    <label>
+                        <input type="radio" name="profile-pic" value="../static/squishy.jpeg">
+                        <img src="../static/squishy.jpeg" alt="Character 5">
+                    </label>
+                    <!-- Add more character options as needed -->
+                </div>
+                <button type="submit">Save Profile Picture</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('access_token');
+    
+            // Fetch user profile data
+            fetch('/get_user_profile', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.querySelector('.profile-details p strong').innerText = data.username;
+                    document.getElementById('selected-profile-pic').src = `../${data.profile_picture}`;
+                } else {
+                    alert(data.message || "Failed to load profile data.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while loading profile data.");
+            });
+        });
+    
+        // Save selected profile picture
+        document.getElementById('profile-pic-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedPic = document.querySelector('input[name="profile-pic"]:checked');
+            if (!selectedPic) {
+                alert("Please select a profile picture.");
+                return;
+            }
+    
+            const token = localStorage.getItem('access_token');
+    
+            fetch('/save_profile_pic', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ profile_picture: selectedPic.value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    document.getElementById('selected-profile-pic').src = `../static/${selectedPic.value}`;
+                } else {
+                    alert(data.message || "Failed to save profile picture.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while saving the profile picture.");
+            });
+        });
+    
+        function logout() {
+            localStorage.removeItem('access_token');
+            window.location.href = '/'; // Redirect to login page
+        }
+    </script>
+    
+    
+</body>
+</html>

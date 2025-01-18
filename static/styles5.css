@@ -1,0 +1,197 @@
+body {
+    font-family: cursive;
+    margin: 0;
+    background-image: url("loginout.jpeg");
+    background-size: cover;
+    background-position: center;
+    color: #000000;
+}
+
+nav {
+    width: 100%;
+    background-color: rgba(4, 1, 1, 0.8);
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2em;
+}
+
+nav ul li a, .profile a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.profile-container {
+    text-align: center;
+    padding: 2em;
+    background: rgba(253, 253, 253, 0.6);
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+    margin: 2em auto;
+    width: 50%;
+}
+
+.profile-container h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #000000;
+}
+
+.profile-picture {
+    margin-bottom: 1em;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #000000;
+}
+
+.profile-details {
+    font-size: larger;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2em;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.profile-details p {
+    margin: 1em 0;
+}
+
+.profile-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-details ul li {
+    margin: 0.5em 0;
+}
+
+.profile-details button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background-color: #1d11f4;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-details button:hover {
+    background-color: #2f8ef3;
+}
+
+.profile-pic-selection {
+    margin-top: 2em;
+}
+
+.profile-pic-selection h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #000000;
+}
+
+.character-options {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.character-options label {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.character-options label:hover {
+    transform: scale(1.1);
+}
+
+.character-options img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+}
+
+.character-options input {
+    display: none;
+}
+
+.character-options input:checked + img {
+    border: 3px solid #1d11f4;
+}
+
+.profile-pic-selection button {
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background-color: #1d11f4;
+    color: rgb(253, 251, 251);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-pic-selection button:hover {
+    background-color: #2f8ef3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 1em;
+    }
+
+    nav ul li a, .profile a {
+        font-size: 1em;
+    }
+
+    .profile-container {
+        padding: 20px;
+        margin: 40px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 0.5em;
+    }
+
+    nav ul li a, .profile a {
+        font-size: 0.9em;
+    }
+
+    .profile-container {
+        padding: 10px;
+        margin: 20px auto;
+    }
+}
