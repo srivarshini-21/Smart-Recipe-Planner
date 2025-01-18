@@ -31,21 +31,16 @@ def get_recipe(id):
 @jwt_required()
 def get_personalized_recipes():
     try:
-        user_id = get_jwt_identity()  # Get the logged-in user's ID from the JWT
-        recipes = Recipe.query.filter_by(user_id=user_id).all()  # Query the database for the user's recipes
-        
-        # Convert recipes to a list of dictionaries
-        recipes_data = [
-            {
-                "id": recipe.id,
-                "name": recipe.name,
-                "ingredients": recipe.ingredients,
-                "instructions": recipe.instructions
-            }
-            for recipe in recipes
-        ]
+        user_id = get_jwt_identity()
+        recipes = Recipe.query.filter_by(user_id=user_id).all()
 
-        return jsonify({"recipes": recipes_data}), 200
+        # Debugging log to check the recipes fetched
+        print(f"Fetched recipes: {recipes}")
+
+        recipes_data = [{'name': r.name, 'ingredients': r.ingredients, 'instructions': r.instructions} for r in recipes]
+        return jsonify({'recipes': recipes_data}), 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        print(f"Error in /get_personalized_recipes: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+
 

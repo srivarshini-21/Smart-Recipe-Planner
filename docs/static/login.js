@@ -19,7 +19,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
   .then(data => {
     if (data.access_token) {
       localStorage.setItem('access_token', data.access_token); // Save the token
-      window.location.href = 'index.html'; // Redirect to the home page
+      window.location.href = 'home.html'; // Redirect to the home page
+
   }
    else {
           // If login failed, show the error message

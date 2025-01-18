@@ -39,9 +39,10 @@ function loadPersonalizedRecipes() {
     })
     .then(response => response.json())
     .then(data => {
-        const recipeList = document.getElementById('recipe-list'); // Corrected ID
-        recipeList.innerHTML = ''; // Clear previous recipes
-
+        console.log(data);  // Debugging line
+        const recipeList = document.getElementById('recipe-list');
+        recipeList.innerHTML = '';  // Clear previous recipes
+    
         if (data.recipes && data.recipes.length > 0) {
             data.recipes.forEach(recipe => {
                 const recipeDiv = document.createElement('div');
@@ -58,6 +59,7 @@ function loadPersonalizedRecipes() {
             recipeList.innerHTML = "<p>No personalized recipes found.</p>";
         }
     })
+    
     .catch(error => {
         console.error("Error:", error);
         alert("An error occurred while loading recipes.");

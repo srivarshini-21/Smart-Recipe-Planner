@@ -10,7 +10,7 @@ import os
 load_dotenv()
 
 # Initialize the Flask app
-app = Flask(__name__)
+app = Flask(__name__, template_folder='docs', static_folder='docs/static')
 
 @app.route('/')
 def login():
