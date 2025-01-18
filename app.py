@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from extensions import db, migrate, jwt, cors
+from routes.extensions import db, migrate, jwt, cors
 from models import User, Recipe
 from routes.auth import bp as auth_bp
 from dotenv import load_dotenv
