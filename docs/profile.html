@@ -29,7 +29,7 @@
         </div>
         <div class="profile-pic-selection">
             <h2>Choose Your Profile Picture</h2>
-            <form id="profile-pic-form" action="/save-profile-pic" method="POST">
+            <form id="profile-pic-form" action="/save_profile_pic" method="POST">
                 <div class="character-options">
                     <label>
                         <input type="radio" name="profile-pic" value="static/panda.jpg">
@@ -108,7 +108,7 @@
                 console.log("Save Response:", data);  // Debugging line
                 if (data.success) {
                     alert(data.message);
-                    document.getElementById('selected-profile-pic').src = `static/${selectedPic.value}`;
+                    document.getElementById('selected-profile-pic').src = selectedPic.value;
                 } else {
                     alert(data.message || "Failed to save profile picture.");
                 }
