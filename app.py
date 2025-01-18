@@ -14,16 +14,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def login():
-    return render_template('login.html')  # Render the 'index.html' template for the login page
+    return render_template('index.html')  # Render the 'index.html' template for the login page
 
 @app.route('/signup.html')
 def signup():
     return render_template('signup.html') 
 
 # Define route for login page
-@app.route('/index.html')
+@app.route('/home.html')
 def home():
-    return render_template('index.html')  # Render the 'login.html' template for the home page
+    return render_template('home.html')  # Render the 'login.html' template for the home page
 
 @app.route('/categories.html')
 def categories():
