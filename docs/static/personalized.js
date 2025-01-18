@@ -1,12 +1,19 @@
 document.getElementById('recipeForm').addEventListener('submit', function(event) {
     event.preventDefault();  // Prevent form from submitting the traditional way
 
-    const recipeName = document.getElementById('recipeName').value; // Corrected ID
+    const recipeName = document.getElementById('recipeName').value;
     const ingredients = document.getElementById('ingredients').value;
     const instructions = document.getElementById('instructions').value;
 
+    if (!recipeName || !ingredients || !instructions) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
     const recipe = { name: recipeName, ingredients: ingredients, instructions: instructions };
-    const token = localStorage.getItem('access_token'); // Unified token key
+    const token = localStorage.getItem('access_token');
+
+    console.log("Submitting recipe:", recipe);  // Debugging line
 
     fetch('/add_personalized_recipe', {
         method: 'POST',
@@ -18,11 +25,12 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
     })
     .then(response => response.json())
     .then(data => {
+        console.log("Response data:", data);  // Debugging line
         if (data.success) {
             loadPersonalizedRecipes(); // Reload recipes
-            document.getElementById('recipeForm').reset(); // Corrected ID
+            document.getElementById('recipeForm').reset();
         } else {
-            alert("Failed to add recipe. Please try again.");
+            alert(`Failed to add recipe: ${data.error || "Please try again."}`);
         }
     })
     .catch(error => {
@@ -33,16 +41,17 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
 
 function loadPersonalizedRecipes() {
     const token = localStorage.getItem('access_token');
+    console.log("Access Token:", token);  // Debugging line
     fetch('/get_personalized_recipes', {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);  // Debugging line
+        console.log("Loaded recipes:", data);  // Debugging line
         const recipeList = document.getElementById('recipe-list');
         recipeList.innerHTML = '';  // Clear previous recipes
-    
+
         if (data.recipes && data.recipes.length > 0) {
             data.recipes.forEach(recipe => {
                 const recipeDiv = document.createElement('div');
@@ -59,7 +68,6 @@ function loadPersonalizedRecipes() {
             recipeList.innerHTML = "<p>No personalized recipes found.</p>";
         }
     })
-    
     .catch(error => {
         console.error("Error:", error);
         alert("An error occurred while loading recipes.");
