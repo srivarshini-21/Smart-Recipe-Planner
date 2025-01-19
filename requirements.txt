@@ -6,3 +6,4 @@ Flask-Migrate==3.1.0
 Flask-JWT-Extended==4.4.3
 Flask-CORS==5.0.0
 python-dotenv==1.0.0
+PyMySQL==1.0.2
