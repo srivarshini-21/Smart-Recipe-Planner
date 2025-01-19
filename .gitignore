@@ -9,3 +9,6 @@ __pycache__/
 *.log
 *.sqlite3
 *.db
+
+# Ignore environment variables file
+.env
