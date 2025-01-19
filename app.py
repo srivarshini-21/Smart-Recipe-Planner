@@ -25,6 +25,10 @@ cors.init_app(app)
 # Register blueprints
 app.register_blueprint(auth_bp)
 
+# Initialize database tables
+with app.app_context():
+    db.create_all()
+
 # Define routes for static pages
 @app.route('/')
 def login():
