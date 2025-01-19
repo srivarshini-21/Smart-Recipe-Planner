@@ -1,12 +1,16 @@
+import os
 from flask import Flask, render_template
 from routes.extensions import db, migrate, jwt, cors
 from models import User, Recipe
 from routes.auth import bp as auth_bp
 from dotenv import load_dotenv
-import os
 
 # Load environment variables
 load_dotenv()
+
+# Use PyMySQL as MySQL driver
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Initialize the Flask app
 app = Flask(__name__, template_folder='docs', static_folder='docs/static')
@@ -25,10 +29,15 @@ cors.init_app(app)
 # Register blueprints
 app.register_blueprint(auth_bp)
 
+# Initialize database tables
+with app.app_context():
+    db.create_all()
+
 # Define routes for static pages
 @app.route('/')
 def login():
     return render_template('index.html')
+
 
 @app.route('/signup.html')
 def signup():
