@@ -1,8 +1,16 @@
 # Smart-Recipe-Planner
+This project is a web application that helps users find recipes based on their available ingredients and dietary preferences. It also allows users to create an account, log in, and save their favorite recipes.
 
-## Overview
+**Features:**
+- User Authentication
+- Save Personalized Recipes
+- Responsive Design
+- Profile Picture Updation
 
-This project is a web application built using Flask, SQLAlchemy, and other related technologies. It includes user authentication, recipe management, and personalized content features. The application is designed for home cooks and food enthusiasts who want to manage and share their recipes easily.
+**Technologies Used:**
+- Frontend: HTML, CSS, JavaScript
+- Backend: Python, Flask
+- Database: MySQL
 
 ## Project Structure
 
