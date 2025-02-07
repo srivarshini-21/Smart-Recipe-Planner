@@ -142,6 +142,8 @@ p {
     body {
         flex-direction: column;
         padding: 1em;
+        font-family: Arial, sans-serif;
+
     }
 
     nav {
